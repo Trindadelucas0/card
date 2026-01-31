@@ -2,9 +2,9 @@
 :root {
   --luxe: #050508;
   --gold: #c9a227;
-  --cyan: #06b6d4;
+  --accent: #c9a227;
   --green: #34d399;
-  --cyan-dim: rgba(6, 182, 212, 0.5);
+  --accent-dim: rgba(201, 162, 39, 0.5);
   --gold-dim: rgba(201, 162, 39, 0.4);
 }
 
@@ -120,8 +120,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(6,182,212,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(6,182,212,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(201,162,39,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,162,39,0.05) 1px, transparent 1px);
   background-size: 32px 32px;
 }
 
@@ -129,7 +129,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(6,182,212,0.12) 0%, transparent 55%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,162,39,0.12) 0%, transparent 55%);
 }
 
 .ad-glow {
@@ -139,7 +139,7 @@ body {
   transform: translateX(-50%);
   width: 80%;
   height: 40%;
-  background: radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 50% 100%, rgba(201,162,39,0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -160,11 +160,11 @@ body {
 .ad-badge-top {
   font-size: clamp(14px, 2.5vw, 18px);
   font-weight: 600;
-  color: var(--cyan);
-  background: rgba(6,182,212,0.12);
+  color: var(--accent);
+  background: rgba(201,162,39,0.12);
   padding: 8px 18px;
   border-radius: 8px;
-  border: 1px solid rgba(6,182,212,0.3);
+  border: 1px solid rgba(201,162,39,0.3);
   margin-bottom: 1rem;
 }
 .ad-body-simple {
@@ -196,11 +196,11 @@ body {
 .ad-badge {
   font-size: 18px;
   font-weight: 600;
-  color: var(--cyan);
-  background: rgba(6,182,212,0.12);
+  color: var(--accent);
+  background: rgba(201,162,39,0.12);
   padding: 10px 20px;
   border-radius: 8px;
-  border: 1px solid rgba(6,182,212,0.3);
+  border: 1px solid rgba(201,162,39,0.3);
 }
 
 .ad-urgente {
@@ -242,7 +242,7 @@ body {
   background: rgba(0,0,0,0.4);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 10px;
-  border-left: 4px solid var(--cyan);
+  border-left: 4px solid var(--accent);
 }
 
 .ad-stat-num {
@@ -250,7 +250,7 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-size: 32px;
   font-weight: 700;
-  color: var(--cyan);
+  color: var(--accent);
   line-height: 1.1;
 }
 
@@ -281,10 +281,10 @@ body {
 .ad-tag {
   font-size: 15px;
   padding: 8px 16px;
-  background: rgba(6,182,212,0.1);
-  color: var(--cyan);
+  background: rgba(201,162,39,0.1);
+  color: var(--accent);
   border-radius: 6px;
-  border: 1px solid rgba(6,182,212,0.25);
+  border: 1px solid rgba(201,162,39,0.25);
 }
 
 /* Benefícios */
@@ -311,10 +311,10 @@ body {
 .ad-cta-block {
   margin-top: auto;
   padding: 26px 32px;
-  background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(6,182,212,0.05));
-  border: 2px solid var(--cyan);
+  background: linear-gradient(135deg, rgba(201,162,39,0.2), rgba(201,162,39,0.05));
+  border: 2px solid var(--accent);
   border-radius: 16px;
-  box-shadow: 0 0 60px rgba(6,182,212,0.2), inset 0 0 40px rgba(6,182,212,0.05);
+  box-shadow: 0 0 60px rgba(201,162,39,0.2), inset 0 0 40px rgba(201,162,39,0.05);
 }
 
 .ad-cta-main {
@@ -323,17 +323,17 @@ body {
   letter-spacing: 0.08em;
   color: #fff;
   text-align: center;
-  background: linear-gradient(135deg, var(--cyan), #0891b2);
+  background: linear-gradient(135deg, var(--accent), #a67c00);
   padding: 24px 36px;
   border-radius: 12px;
   margin-bottom: 12px;
-  box-shadow: 0 8px 40px rgba(6,182,212,0.4);
+  box-shadow: 0 8px 40px rgba(201,162,39,0.4);
 }
 
 .ad-cta-sub {
   font-size: 20px;
   font-weight: 600;
-  color: var(--cyan);
+  color: var(--accent);
   text-align: center;
   margin-bottom: 8px;
 }
