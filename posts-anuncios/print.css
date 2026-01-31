@@ -16,6 +16,7 @@ html {
 }
 
 body {
+  position: relative;
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
@@ -24,12 +25,18 @@ body {
   background: var(--luxe);
   color: #e8e8e8;
   -webkit-font-smoothing: antialiased;
+  --safe-w: calc(100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  --safe-h: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  --scale: min(var(--safe-w) / 1080, var(--safe-h) / 1350);
+}
+
+.print-viewport {
+  position: absolute;
+  inset: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  --safe-w: calc(100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
-  --safe-h: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
 }
 
 .ad-post {
@@ -37,15 +44,8 @@ body {
   height: 1350px;
   position: relative;
   flex-shrink: 0;
-}
-
-/* Todos os dispositivos móveis: post escala para preencher a tela */
-@media (max-width: 1080px), (max-height: 1350px) {
-  .ad-post {
-    --scale: min(var(--safe-w) / 1080, var(--safe-h) / 1350);
-    transform: scale(var(--scale));
-    transform-origin: center center;
-  }
+  transform: scale(var(--scale));
+  transform-origin: center center;
 }
 
 @supports not (height: 100dvh) {
@@ -63,6 +63,12 @@ body {
     padding: 0;
     display: block;
     overflow: visible;
+  }
+  .print-viewport {
+    position: static;
+    inset: auto;
+    overflow: visible;
+    display: block;
   }
   .ad-post {
     transform: none;

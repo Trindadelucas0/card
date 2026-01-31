@@ -14,12 +14,12 @@
 html {
   overflow: hidden;
   -webkit-text-size-adjust: 100%;
-  /* Altura real no mobile (barra de endereço, etc.) */
   height: 100%;
   height: 100dvh;
 }
 
 body {
+  position: relative;
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
@@ -28,14 +28,21 @@ body {
   background: var(--luxe);
   color: #e8e8e8;
   -webkit-font-smoothing: antialiased;
+  /* Área útil (safe area: notch, barra de gestos) */
+  --safe-w: calc(100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  --safe-h: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  /* Scale para caber na tela em qualquer dispositivo */
+  --scale: min(var(--safe-w) / 1080, var(--safe-h) / 1920);
+}
+
+/* Wrapper que limita a área visível e evita scroll no mobile */
+.print-viewport {
+  position: absolute;
+  inset: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Safe area: notch, ilha dinâmica, barra de gestos */
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  /* Área útil para calcular o scale (qualquer dispositivo móvel) */
-  --safe-w: calc(100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
-  --safe-h: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
 }
 
 .card {
@@ -43,15 +50,9 @@ body {
   height: 1920px;
   position: relative;
   flex-shrink: 0;
-}
-
-/* Todos os dispositivos móveis: card escala para preencher a tela (portrait e landscape) */
-@media (max-width: 1080px), (max-height: 1920px) {
-  .card {
-    --scale: min(var(--safe-w) / 1080, var(--safe-h) / 1920);
-    transform: scale(var(--scale));
-    transform-origin: center center;
-  }
+  /* Centraliza e escala para caber na tela (mobile e tablet) */
+  transform: scale(var(--scale));
+  transform-origin: center center;
 }
 
 /* Fallback para navegadores sem dvh */
@@ -71,6 +72,12 @@ body {
     padding: 0;
     display: block;
     overflow: visible;
+  }
+  .print-viewport {
+    position: static;
+    inset: auto;
+    overflow: visible;
+    display: block;
   }
   .card {
     transform: none;
