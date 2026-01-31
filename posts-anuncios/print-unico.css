@@ -1,4 +1,4 @@
-/* Post único 1080×1350 — denso e chamativo — adaptado para TODOS iPhones e Android */
+/* Post único 1080×1350 — preenche tela do celular */
 :root {
   --luxe: #050508;
   --gold: #c9a227;
@@ -11,7 +11,6 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
-  overflow: hidden;
   -webkit-text-size-adjust: 100%;
   height: 100%;
   height: -webkit-fill-available;
@@ -22,53 +21,15 @@ html {
 body {
   position: relative;
   width: 100%;
-  height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   min-height: -webkit-fill-available;
-  overflow: hidden;
   font-family: 'Outfit', sans-serif;
   background: var(--luxe);
   color: #e8e8e8;
   -webkit-font-smoothing: antialiased;
   --safe-w: calc(100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
   --safe-h: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
-  --scale-w: var(--safe-w);
-  --scale-h: var(--safe-h);
-  --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1350)));
-}
-
-/* Media queries: telefone com scale menor para caber confortável */
-@media (max-width: 768px), (max-height: 1024px) {
-  body {
-    --scale-w: calc(var(--safe-w) - 16px);
-    --scale-h: calc(var(--safe-h) - 24px);
-    --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1350)));
-  }
-}
-
-@media (max-width: 430px), (max-height: 932px) {
-  body {
-    --scale-w: calc(var(--safe-w) - 28px);
-    --scale-h: calc(var(--safe-h) - 40px);
-    --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1350)));
-  }
-}
-
-@media (max-width: 390px), (max-height: 700px) {
-  body {
-    --scale-w: calc(var(--safe-w) - 36px);
-    --scale-h: calc(var(--safe-h) - 52px);
-    --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1350)));
-  }
-}
-
-@media (max-height: 500px) and (orientation: landscape) {
-  body {
-    --scale-w: calc(var(--safe-w) - 24px);
-    --scale-h: calc(var(--safe-h) - 32px);
-    --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1350)));
-  }
 }
 
 .print-viewport {
@@ -86,19 +47,35 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Mobile: post preenche toda a tela do celular (4:5 cover) */
 .ad-post {
-  width: 1080px;
-  height: 1350px;
+  --post-w: max(var(--safe-w), calc(var(--safe-h) * 4 / 5));
+  width: var(--post-w);
+  height: calc(var(--post-w) * 5 / 4);
   position: relative;
   flex-shrink: 0;
-  transform: scale(var(--scale, 0.4));
-  transform-origin: center center;
   z-index: 1;
 }
 
 @supports not (height: 100dvh) {
+  body { --safe-h: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)); }
+}
+
+/* Desktop: scale fixo 1080x1350 para preview/print */
+@media (min-width: 769px) and (min-height: 900px) {
+  html { overflow: hidden; }
   body {
-    --safe-h: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    height: 100%;
+    overflow: hidden;
+    --scale-w: calc(var(--safe-w) - 32px);
+    --scale-h: calc(var(--safe-h) - 48px);
+    --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1350)));
+  }
+  .ad-post {
+    width: 1080px;
+    height: 1350px;
+    transform: scale(var(--scale, 1));
+    transform-origin: center center;
   }
 }
 
@@ -124,9 +101,10 @@ body {
     display: block;
   }
   .ad-post {
-    transform: none;
-    width: 1080px;
-    height: 1350px;
+    transform: none !important;
+    width: 1080px !important;
+    height: 1350px !important;
+    max-width: none !important;
   }
   @page { size: 1080px 1350px; margin: 0; }
 }
@@ -173,6 +151,20 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* Versão simples: só título + texto + CTA */
+.ad-content-simple {
+  justify-content: space-between;
+  padding: clamp(24px, 5vw, 55px) clamp(28px, 6vw, 65px) clamp(24px, 5vw, 55px);
+}
+.ad-body-simple {
+  font-size: clamp(16px, 3.5vw, 22px);
+  line-height: 1.5;
+  color: rgba(255,255,255,0.9);
+  margin: 0 0 1.5rem;
+}
+.ad-content-simple .ad-title { margin-bottom: 1rem; }
+.ad-content-simple .ad-cta-block { margin-top: auto; }
 
 /* Topo */
 .ad-top {

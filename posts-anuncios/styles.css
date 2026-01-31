@@ -106,6 +106,18 @@ body {
   justify-content: space-between;
 }
 
+/* Versão simples: só título + texto + CTA */
+.ad-content-simple {
+  justify-content: space-between;
+}
+.ad-body-simple {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 1rem;
+}
+.ad-body-simple strong { color: var(--cyan); }
+
 .ad-top { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
 .ad-badge { font-size: 0.6rem; font-weight: 600; color: var(--cyan); background: rgba(6,182,212,0.12); padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(6,182,212,0.3); }
 .ad-urgente { font-size: 0.55rem; font-weight: 700; color: var(--gold); background: rgba(201,162,39,0.15); padding: 5px 10px; border-radius: 4px; border: 1px solid rgba(201,162,39,0.4); }
