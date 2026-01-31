@@ -1,27 +1,71 @@
 /* Estilos para print/screenshot 1080x1920 - Instagram Story / WhatsApp Status */
+/* Adaptado para telefone: preenche a tela e fica bom para print/screenshot */
 :root {
   --luxe: #050508;
   --gold: #c9a227;
   --cyan: #06b6d4;
   --gold-dim: rgba(201, 162, 39, 0.4);
+  --card-w: 1080;
+  --card-h: 1920;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
-  width: 1080px;
-  height: 1920px;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
   font-family: 'Outfit', sans-serif;
   background: var(--luxe);
   color: #e8e8e8;
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card {
   width: 1080px;
   height: 1920px;
   position: relative;
+  flex-shrink: 0;
+}
+
+/* Telefone: card escala para caber na tela (preenche viewport) */
+@media (max-width: 600px), (max-height: 1000px) {
+  body {
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .card {
+    --scale: min(100vw / 1080, 100dvh / 1920, 100vh / 1920);
+    transform: scale(var(--scale));
+    transform-origin: center center;
+  }
+}
+
+/* Print: uma página = um card em alta resolução */
+@media print {
+  html, body {
+    width: 1080px;
+    height: 1920px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    display: block;
+    overflow: visible;
+  }
+  .card {
+    transform: none;
+    width: 1080px;
+    height: 1920px;
+  }
+  @page {
+    size: 1080px 1920px;
+    margin: 0;
+  }
 }
 
 .card-bg {
