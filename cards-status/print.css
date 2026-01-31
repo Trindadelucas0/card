@@ -1,5 +1,5 @@
 /* Estilos para print/screenshot 1080x1920 - Instagram Story / WhatsApp Status */
-/* Adaptado para telefone: preenche a tela e fica bom para print/screenshot */
+/* Adaptado para TODOS os iPhones e Android: cabe na tela, safe area, sem scroll */
 :root {
   --luxe: #050508;
   --gold: #c9a227;
@@ -14,40 +14,47 @@
 html {
   overflow: hidden;
   -webkit-text-size-adjust: 100%;
+  /* Altura fixa: iOS (fill-available), depois dvh, depois vh */
   height: 100%;
-  height: 100dvh;
+  height: -webkit-fill-available;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 body {
   position: relative;
   width: 100%;
-  height: 100vh;
-  height: 100dvh;
+  /* Altura estável em todos os dispositivos móveis */
+  height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
+  min-height: -webkit-fill-available;
   overflow: hidden;
   font-family: 'Outfit', sans-serif;
   background: var(--luxe);
   color: #e8e8e8;
   -webkit-font-smoothing: antialiased;
-  /* Área útil (safe area: notch, barra de gestos) */
+  /* Área útil: safe area (notch, ilha, barra de gestos) */
   --safe-w: calc(100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
   --safe-h: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
-  /* Scale para caber na tela (calc para compatibilidade) */
-  --scale: min(calc(var(--safe-w) / 1080), calc(var(--safe-h) / 1920));
+  /* Scale: cabe na tela; máximo 1 para não estourar em telas grandes */
+  --scale: min(1, min(calc(var(--safe-w) / 1080), calc(var(--safe-h) / 1920)));
 }
 
-/* Wrapper que limita a área visível e evita scroll no mobile */
+/* Wrapper: ocupa exatamente a área visível (todos os iPhones e Android) */
 .print-viewport {
-  position: absolute;
+  position: fixed;
   top: env(safe-area-inset-top, 0);
   left: env(safe-area-inset-left, 0);
+  right: env(safe-area-inset-right, 0);
+  bottom: env(safe-area-inset-bottom, 0);
   width: var(--safe-w);
   height: var(--safe-h);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-overflow-scrolling: touch;
 }
 
 .card {
@@ -55,13 +62,12 @@ body {
   height: 1920px;
   position: relative;
   flex-shrink: 0;
-  /* Centraliza e escala para caber na tela; fallback 0.4 se --scale falhar */
   transform: scale(var(--scale, 0.4));
   transform-origin: center center;
   z-index: 1;
 }
 
-/* Fallback para navegadores sem dvh */
+/* Fallback: navegadores sem dvh (Android antigo, etc.) */
 @supports not (height: 100dvh) {
   body {
     --safe-h: calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
@@ -81,7 +87,12 @@ body {
   }
   .print-viewport {
     position: static;
-    inset: auto;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    height: auto;
     overflow: visible;
     display: block;
   }
