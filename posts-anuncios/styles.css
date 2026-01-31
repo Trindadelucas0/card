@@ -157,6 +157,8 @@ body {
 .ad-cta-block { padding: 1.2rem 1.4rem; background: rgba(0,0,0,0.5); border: 2px solid var(--gold); border-radius: 12px; }
 .ad-cta-main { font-family: 'Bebas Neue'; font-size: 1.3rem; letter-spacing: 0.08em; color: var(--gold); text-align: center; background: #000; border: 2px solid var(--gold); padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 0.6rem; }
 .ad-cta-sub { font-size: 0.65rem; font-weight: 600; color: var(--gold); text-align: center; margin-bottom: 4px; }
+.ad-cta-whatsapp { display: block; font-size: 0.9rem; font-weight: 700; color: #25d366; text-align: center; margin-top: 0.5rem; text-decoration: none; }
+.ad-cta-whatsapp:hover { color: #2eff7b; }
 .ad-cta-hint { font-size: 0.55rem; color: rgba(255,255,255,0.5); text-align: center; }
 .ad-footer { text-align: center; margin-top: 1rem; }
 .ad-garantia { font-size: 0.55rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
