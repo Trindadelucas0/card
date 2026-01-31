@@ -115,6 +115,16 @@ body {
 
 .card-post strong { color: var(--cyan); font-weight: 600; }
 
+.card-post-punch {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(0.9rem, 4vw, 1.2rem);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin: 0;
+}
+.card-post-punch span { color: var(--gold); }
+
 /* Mockup de interface abaixo do post */
 .card-mockup {
   margin-top: 0.75rem;

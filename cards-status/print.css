@@ -249,6 +249,16 @@ body {
   font-weight: 600;
 }
 
+.card-post-punch {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(22px, 3.5vw, 32px);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin: 0;
+}
+.card-post-punch span { color: var(--gold); }
+
 /* Mockups para print */
 .card-mockup {
   margin-top: 22px;

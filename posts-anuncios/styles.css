@@ -106,9 +106,20 @@ body {
   justify-content: space-between;
 }
 
-/* Versão simples: só título + texto + CTA */
+/* Versão simples: badge + título + texto + CTA */
 .ad-content-simple {
   justify-content: space-between;
+}
+.ad-badge-top {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--cyan);
+  background: rgba(6,182,212,0.12);
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(6,182,212,0.3);
+  margin-bottom: 0.8rem;
 }
 .ad-body-simple {
   font-size: 0.95rem;
@@ -117,6 +128,17 @@ body {
   margin: 0 0 1rem;
 }
 .ad-body-simple strong { color: var(--cyan); }
+
+/* Texto estilo título: curto, bater o olho, mesma combinação de cor */
+.ad-punch {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.2rem, 5.5vw, 1.8rem);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+.ad-punch span { color: var(--gold); }
 
 .ad-top { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
 .ad-badge { font-size: 0.6rem; font-weight: 600; color: var(--cyan); background: rgba(6,182,212,0.12); padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(6,182,212,0.3); }
