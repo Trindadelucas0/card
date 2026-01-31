@@ -267,12 +267,12 @@ body {
 .card-cta-wrap {
   display: inline-block;
   padding: 28px 45px;
-  background: linear-gradient(135deg,rgba(201,162,39,0.2),rgba(201,162,39,0.05));
-  border: 3px solid var(--accent);
+  background: #000;
+  border: 3px solid var(--gold);
   border-radius: 16px;
 }
-.card-cta { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 0.08em; color: #fff; margin-bottom: 12px; }
-.card-cta-sub { font-size: 18px; color: var(--accent); font-weight: 600; }
+.card-cta { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 12px; }
+.card-cta-sub { font-size: 18px; color: var(--gold); font-weight: 600; }
 
 /* Mockups para print */
 .card-mockup {

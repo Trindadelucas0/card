@@ -154,9 +154,9 @@ body {
 .ad-benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
 .ad-benefit { display: flex; align-items: center; gap: 8px; font-size: 0.7rem; color: rgba(255,255,255,0.9); }
 .ad-benefit-icon { font-size: 0.9rem; }
-.ad-cta-block { padding: 1.2rem 1.4rem; background: linear-gradient(135deg,rgba(201,162,39,0.2),rgba(201,162,39,0.05)); border: 2px solid var(--accent); border-radius: 12px; }
-.ad-cta-main { font-family: 'Bebas Neue'; font-size: 1.3rem; letter-spacing: 0.08em; color: #fff; text-align: center; background: linear-gradient(135deg,var(--accent),#a67c00); padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 0.6rem; }
-.ad-cta-sub { font-size: 0.65rem; font-weight: 600; color: var(--accent); text-align: center; margin-bottom: 4px; }
+.ad-cta-block { padding: 1.2rem 1.4rem; background: rgba(0,0,0,0.5); border: 2px solid var(--gold); border-radius: 12px; }
+.ad-cta-main { font-family: 'Bebas Neue'; font-size: 1.3rem; letter-spacing: 0.08em; color: var(--gold); text-align: center; background: #000; border: 2px solid var(--gold); padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 0.6rem; }
+.ad-cta-sub { font-size: 0.65rem; font-weight: 600; color: var(--gold); text-align: center; margin-bottom: 4px; }
 .ad-cta-hint { font-size: 0.55rem; color: rgba(255,255,255,0.5); text-align: center; }
 .ad-footer { text-align: center; margin-top: 1rem; }
 .ad-garantia { font-size: 0.55rem; color: rgba(255,255,255,0.4); margin-top: 4px; }

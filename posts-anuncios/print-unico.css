@@ -311,29 +311,28 @@ body {
 .ad-cta-block {
   margin-top: auto;
   padding: 26px 32px;
-  background: linear-gradient(135deg, rgba(201,162,39,0.2), rgba(201,162,39,0.05));
-  border: 2px solid var(--accent);
+  background: rgba(0,0,0,0.5);
+  border: 2px solid var(--gold);
   border-radius: 16px;
-  box-shadow: 0 0 60px rgba(201,162,39,0.2), inset 0 0 40px rgba(201,162,39,0.05);
 }
 
 .ad-cta-main {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 44px;
   letter-spacing: 0.08em;
-  color: #fff;
+  color: var(--gold);
   text-align: center;
-  background: linear-gradient(135deg, var(--accent), #a67c00);
+  background: #000;
   padding: 24px 36px;
   border-radius: 12px;
   margin-bottom: 12px;
-  box-shadow: 0 8px 40px rgba(201,162,39,0.4);
+  border: 2px solid var(--gold);
 }
 
 .ad-cta-sub {
   font-size: 20px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--gold);
   text-align: center;
   margin-bottom: 8px;
 }
