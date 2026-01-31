@@ -8,7 +8,11 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
 
 body {
   font-family: 'Outfit', sans-serif;
@@ -16,6 +20,7 @@ body {
   color: #e8e8e8;
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -24,10 +29,30 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 2rem 1rem 6rem;
+  padding: max(2rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) 6rem max(1rem, env(safe-area-inset-left));
 }
 
-/* Post 4:5 - Instagram Feed */
+/* Post card no index — igual ao cards-status (scroll-snap, tamanho mobile) */
+.post-card-view {
+  width: min(100%, 400px);
+  aspect-ratio: 4 / 5;
+  max-height: calc(100dvh - 120px);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03);
+  flex-shrink: 0;
+}
+
+.post-card-view .ad-content {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Post 4:5 - Instagram Feed (uso em outras páginas) */
 .ad-post {
   width: min(100%, 400px);
   aspect-ratio: 4 / 5;
@@ -81,7 +106,7 @@ body {
   justify-content: space-between;
 }
 
-.ad-top { display: flex; justify-content: space-between; align-items: center; }
+.ad-top { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
 .ad-badge { font-size: 0.6rem; font-weight: 600; color: var(--cyan); background: rgba(6,182,212,0.12); padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(6,182,212,0.3); }
 .ad-urgente { font-size: 0.55rem; font-weight: 700; color: var(--gold); background: rgba(201,162,39,0.15); padding: 5px 10px; border-radius: 4px; border: 1px solid rgba(201,162,39,0.4); }
 .ad-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
@@ -227,33 +252,82 @@ body {
 .ad-post-preview .ad-brand { font-size: 1rem; }
 .ad-post-preview .ad-garantia { font-size: 0.5rem; }
 
-.nav-posts {
+/* Nav fixa no rodapé — igual ao cards-status */
+.nav-posts-card {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  padding-left: max(1.5rem, env(safe-area-inset-left));
+  padding-right: max(1.5rem, env(safe-area-inset-right));
   background: rgba(5,5,8,0.95);
   border-top: 1px solid var(--glass-border);
   z-index: 100;
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.nav-posts a {
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
+.nav-hint {
+  font-size: 0.65rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.nav-link {
   color: var(--cyan);
   text-decoration: none;
-  border: 1px solid var(--cyan);
-  border-radius: 6px;
 }
 
-.nav-posts a:hover { background: rgba(6, 182, 212, 0.1); }
+.nav-link:hover { text-decoration: underline; }
 
-/* Grid de posts */
+.nav-dots {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-dot {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  transition: all 0.25s;
+}
+
+.nav-dot:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  background: rgba(6, 182, 212, 0.1);
+}
+
+.nav-dot.active {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  background: rgba(6, 182, 212, 0.15);
+}
+
+/* Desktop: largura fixa para os cards */
+@media (min-width: 500px) {
+  .post-card-view {
+    width: 400px;
+  }
+}
+
+/* Grid de posts (legado) */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

@@ -96,14 +96,25 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Mobile: card = tamanho de Status (9:16), preenche tela inteira como Stories */
 .card {
-  width: 1080px;
-  height: 1920px;
+  /* Cover: preenche toda a tela mantendo 9:16 — zero barras, como Status real */
+  --card-w: max(var(--safe-w), calc(var(--safe-h) * 9 / 16));
+  width: var(--card-w);
+  height: calc(var(--card-w) * 16 / 9);
   position: relative;
   flex-shrink: 0;
-  transform: scale(var(--scale, 0.4));
-  transform-origin: center center;
   z-index: 1;
+}
+
+/* Desktop: scale fixo 1080x1920 para preview/print */
+@media (min-width: 769px) and (min-height: 900px) {
+  .card {
+    width: 1080px;
+    height: 1920px;
+    transform: scale(var(--scale, 1));
+    transform-origin: center center;
+  }
 }
 
 /* Fallback: navegadores sem dvh (Android antigo, etc.) */
