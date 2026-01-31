@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUNILARIA — Cards para Status e Stories</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cards-container">
+    <!-- Card 1: Hero / Marca -->
+    <div class="status-card" id="card1">
+      <div class="card-bg"></div>
+      <div class="card-content post-mode">
+        <span class="card-badge">Gestão definitiva para oficinas</span>
+        <h1 class="card-title">FUNILARIA</h1>
+        <p class="card-post">O Sistema que Transforma sua Oficina. Módulos completos, relatórios PDF, licença única.</p>
+        <div class="card-mockup">
+          <div class="mockup-grid">
+            <div class="mockup-tile">Dashboard</div>
+            <div class="mockup-tile">OS</div>
+            <div class="mockup-tile">Orçamentos</div>
+            <div class="mockup-tile">Clientes</div>
+            <div class="mockup-tile">Estoque</div>
+            <div class="mockup-tile">Financeiro</div>
+            <div class="mockup-tile">Portal</div>
+            <div class="mockup-tile">Backup</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Dashboard -->
+    <div class="status-card" id="card2">
+      <div class="card-bg card-bg-2"></div>
+      <div class="card-content post-mode">
+        <span class="card-label">// Dashboard</span>
+        <h2 class="card-heading">Dashboard em Tempo Real</h2>
+        <p class="card-post">Entradas, faturamento, saídas e saldo. KPIs de estoque e OS por etapa. Contas a receber. Notificar por WhatsApp.</p>
+        <div class="card-mockup">
+          <div class="mockup-screen">
+            <div class="mockup-kpis">
+              <div class="mockup-kpi"><span>Entradas</span><span>R$ 48.520</span></div>
+              <div class="mockup-kpi"><span>Faturamento</span><span>R$ 32.100</span></div>
+              <div class="mockup-kpi"><span>Saídas</span><span>R$ 18.400</span></div>
+              <div class="mockup-kpi"><span>Saldo</span><span>R$ 62.220</span></div>
+            </div>
+            <div class="mockup-bar">OS Abertas: 12 · Finalizadas: 8 · Estoque: R$ 45.300</div>
+            <div class="mockup-bar">Entrada (2) · Vistoria (1) · Em Serviço (5) · Finalizado (4)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Ordens de Serviço -->
+    <div class="status-card" id="card3">
+      <div class="card-bg card-bg-3"></div>
+      <div class="card-content post-mode">
+        <span class="card-label">// Ordens de Serviço</span>
+        <h2 class="card-heading">OS com timeline visual</h2>
+        <p class="card-post">Entrada → Vistoria → Aguard. → Em Serviço → Finalizado → Entregue. Cliente e veículo vinculados. PDF com um clique.</p>
+        <div class="card-mockup">
+          <div class="mockup-screen">
+            <div class="mockup-row"><span class="mockup-badge">OS 0042</span> João · ABC-1234 · Civic 2022</div>
+            <div class="mockup-timeline">
+              <span class="done">●</span><span class="done">●</span><span class="current">●</span><span>○</span><span>○</span><span>○</span>
+              <small>Entrada → Vistoria → Aguard. → Serviço → Final → Entregue</small>
+            </div>
+            <div class="mockup-row"><span>Pintura — R$ 1.200</span><span>Mão obra — R$ 800</span></div>
+            <div class="mockup-row mockup-total"><span>Total</span><span>R$ 2.000</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Orçamentos -->
+    <div class="status-card" id="card4">
+      <div class="card-bg card-bg-4"></div>
+      <div class="card-content post-mode">
+        <span class="card-label">// Orçamentos</span>
+        <h2 class="card-heading">Orçamento profissional na hora</h2>
+        <p class="card-post">Avulso ou da OS. PDF pronto. Converta aprovado em OS com um clique. Histórico e filtros.</p>
+        <div class="card-mockup">
+          <div class="mockup-screen">
+            <div class="mockup-header">Orçamento #0042 — Cliente: João Silva</div>
+            <div class="mockup-line"><span>Pintura porta dianteira</span><span>R$ 1.200</span></div>
+            <div class="mockup-line"><span>Mão de obra</span><span>R$ 800</span></div>
+            <div class="mockup-line mockup-total"><span>Total</span><span>R$ 2.000</span></div>
+            <div class="mockup-actions">PDF · Converter em OS</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Clientes e Veículos -->
+    <div class="status-card" id="card5">
+      <div class="card-bg card-bg-5"></div>
+      <div class="card-content post-mode">
+        <span class="card-label">// Clientes e Veículos</span>
+        <h2 class="card-heading">Cadastro completo e integrado</h2>
+        <p class="card-post">CPF/CNPJ, contato, endereço. Veículos: placa, modelo, ano. Histórico de OS. Documentos em PDF. Busca por nome, placa ou doc.</p>
+        <div class="card-mockup">
+          <div class="mockup-screen">
+            <div class="mockup-header">Maria Santos · CPF 123.456.789-00</div>
+            <div class="mockup-row"><span class="mockup-highlight">ABC-1234</span> Honda Civic 2022</div>
+            <div class="mockup-bar">3 OS · R$ 8.500 total · RG · CNH · Comprovante</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Estoque -->
+    <div class="status-card" id="card6">
+      <div class="card-bg card-bg-6"></div>
+      <div class="card-content post-mode">
+        <span class="card-label">// Estoque e Fornecedores</span>
+        <h2 class="card-heading">Controle total de peças e serviços</h2>
+        <p class="card-post">Entrada em massa, saída vinculada à OS. Alerta de mínimo. Histórico. Fornecedores com custo e margem.</p>
+        <div class="card-mockup">
+          <div class="mockup-screen">
+            <div class="mockup-line"><span>Parafuso M8</span><span>45 un · Mín: 20</span></div>
+            <div class="mockup-line"><span>Tinta Branco</span><span>8 L · Mín: 5</span></div>
+            <div class="mockup-line mockup-alert"><span>Lixa P120</span><span>3 un · Abaixo!</span></div>
+            <div class="mockup-bar">156 itens · Valor R$ 45.300 · 3 abaixo do mínimo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7: Financeiro -->
+    <div class="status-card" id="card7">
+      <div class="card-bg card-bg-7"></div>
+      <div class="card-content post-mode">
+        <span class="card-label">// Financeiro</span>
+        <h2 class="card-heading">Receitas, despesas e lucro em tempo real</h2>
+        <p class="card-post">Gráficos. PDF mensal. Comprovante por movimentação. Parcelas com boleto. Lucro automático.</p>
+        <div class="card-mockup">
+          <div class="mockup-screen">
+            <div class="mockup-kpis mockup-kpis-2">
+              <div class="mockup-kpi"><span>Receitas</span><span>R$ 48.520</span></div>
+              <div class="mockup-kpi"><span>Despesas</span><span>R$ 18.400</span></div>
+            </div>
+            <div class="mockup-row mockup-total mockup-positive"><span>Lucro</span><span>R$ 30.120</span></div>
+            <div class="mockup-chart">
+              <div class="mockup-bar-chart" style="height:60%"></div>
+              <div class="mockup-bar-chart" style="height:40%"></div>
+              <div class="mockup-bar-chart" style="height:80%"></div>
+              <div class="mockup-bar-chart" style="height:50%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8: Portal + CTA -->
+    <div class="status-card" id="card8">
+      <div class="card-bg card-bg-8"></div>
+      <div class="card-content post-mode">
+        <span class="card-label">// Portal do Cliente + Backup</span>
+        <h2 class="card-heading">Cliente online · Backup com um clique</h2>
+        <p class="card-post">CPF + 4 dígitos. Status da OS, orçamentos, termos. Baixa PDFs e boletos. Backup completo. Auditoria.</p>
+        <div class="card-mockup">
+          <div class="mockup-screen mockup-portal">
+            <div class="mockup-header">Portal do Cliente — OS #0042</div>
+            <div class="mockup-row"><span>Status</span><span class="mockup-badge">Em Serviço</span></div>
+            <div class="mockup-bar">João Silva · ABC-1234 · Civic 2022</div>
+            <div class="mockup-actions">Orçamento · Termos · Boleto</div>
+            <div class="mockup-footer">FUNILARIA — Entre em contato</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="card-nav">
+    <span class="nav-hint">Para print 1080×1920 (Instagram/WhatsApp): <a href="print-1.html" class="nav-link">print-1</a> · <a href="print-2.html" class="nav-link">2</a> · <a href="print-3.html" class="nav-link">3</a> · <a href="print-4.html" class="nav-link">4</a> · <a href="print-5.html" class="nav-link">5</a> · <a href="print-6.html" class="nav-link">6</a> · <a href="print-7.html" class="nav-link">7</a> · <a href="print-8.html" class="nav-link">8</a></span>
+    <div class="nav-dots">
+      <a href="#card1" class="nav-dot active">1</a>
+      <a href="#card2" class="nav-dot">2</a>
+      <a href="#card3" class="nav-dot">3</a>
+      <a href="#card4" class="nav-dot">4</a>
+      <a href="#card5" class="nav-dot">5</a>
+      <a href="#card6" class="nav-dot">6</a>
+      <a href="#card7" class="nav-dot">7</a>
+      <a href="#card8" class="nav-dot">8</a>
+    </div>
+  </nav>
+  <script>
+    document.querySelectorAll('.nav-dot').forEach(function(dot, i) {
+      dot.addEventListener('click', function(e) {
+        document.querySelectorAll('.nav-dot').forEach(function(d) { d.classList.remove('active'); });
+        dot.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

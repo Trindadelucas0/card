@@ -1,0 +1,297 @@
+:root {
+  --luxe: #050508;
+  --gold: #c9a227;
+  --cyan: #06b6d4;
+  --cyan-dim: rgba(6, 182, 212, 0.4);
+  --gold-dim: rgba(201, 162, 39, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: #0a0a0a;
+  color: #e8e8e8;
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.posts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1rem 6rem;
+}
+
+/* Post 4:5 - Instagram Feed */
+.ad-post {
+  width: min(100%, 400px);
+  aspect-ratio: 4 / 5;
+  max-height: calc(100vh - 120px);
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  flex-shrink: 0;
+}
+
+.ad-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--luxe) 0%, #0d0f12 40%, #0a0e12 100%);
+  z-index: 0;
+}
+
+.ad-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(6, 182, 212, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.ad-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+}
+
+.ad-glow {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 80%; height: 40%;
+  background: radial-gradient(ellipse at 50% 100%, rgba(6,182,212,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ad-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 1.5rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ad-top { display: flex; justify-content: space-between; align-items: center; }
+.ad-badge { font-size: 0.6rem; font-weight: 600; color: var(--cyan); background: rgba(6,182,212,0.12); padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(6,182,212,0.3); }
+.ad-urgente { font-size: 0.55rem; font-weight: 700; color: var(--gold); background: rgba(201,162,39,0.15); padding: 5px 10px; border-radius: 4px; border: 1px solid rgba(201,162,39,0.4); }
+.ad-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+.ad-stat { text-align: center; padding: 12px 10px; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; border-left: 3px solid var(--cyan); }
+.ad-stat-num { display: block; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 700; color: var(--cyan); }
+.ad-stat-label { font-size: 0.5rem; color: rgba(255,255,255,0.6); }
+.ad-section { margin-bottom: 0.8rem; }
+.ad-section-title { font-size: 0.6rem; font-weight: 700; color: #34d399; margin-bottom: 8px; }
+.ad-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.ad-tag { font-size: 0.55rem; padding: 5px 12px; background: rgba(6,182,212,0.1); color: var(--cyan); border-radius: 4px; border: 1px solid rgba(6,182,212,0.25); }
+.ad-benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+.ad-benefit { display: flex; align-items: center; gap: 8px; font-size: 0.7rem; color: rgba(255,255,255,0.9); }
+.ad-benefit-icon { font-size: 0.9rem; }
+.ad-cta-block { padding: 1.2rem 1.4rem; background: linear-gradient(135deg,rgba(6,182,212,0.2),rgba(6,182,212,0.05)); border: 2px solid var(--cyan); border-radius: 12px; }
+.ad-cta-main { font-family: 'Bebas Neue'; font-size: 1.3rem; letter-spacing: 0.08em; color: #fff; text-align: center; background: linear-gradient(135deg,var(--cyan),#0891b2); padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 0.6rem; }
+.ad-cta-sub { font-size: 0.65rem; font-weight: 600; color: var(--cyan); text-align: center; margin-bottom: 4px; }
+.ad-cta-hint { font-size: 0.55rem; color: rgba(255,255,255,0.5); text-align: center; }
+.ad-footer { text-align: center; margin-top: 1rem; }
+.ad-garantia { font-size: 0.55rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+.ad-hook {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 0.5rem;
+}
+
+.ad-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 8vw, 2.8rem);
+  line-height: 1.05;
+  letter-spacing: 0.03em;
+  color: #fff;
+  margin: 0 0 1rem;
+}
+
+.ad-title span { color: var(--gold); }
+
+.ad-body {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.8);
+  margin: 0;
+  flex: 1;
+}
+
+.ad-body strong { color: var(--cyan); }
+
+.ad-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.ad-benefits li {
+  padding: 0.25rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.ad-benefits li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #34d399;
+  font-weight: 700;
+}
+
+.ad-cta-wrap {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.ad-cta {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  background: linear-gradient(135deg, var(--cyan), #0891b2);
+  border: none;
+  border-radius: 8px;
+  color: #0a0a0a;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+}
+
+.ad-cta:hover {
+  box-shadow: 0 6px 30px var(--cyan-dim);
+  transform: translateY(-2px);
+}
+
+.ad-cta-sub {
+  display: block;
+  text-align: center;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.5rem;
+}
+
+.ad-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+/* Post único - preview */
+.ad-post-preview .ad-content { padding: 1rem 1.2rem; }
+.ad-post-preview .ad-top { margin-bottom: 0.8rem; }
+.ad-post-preview .ad-badge { font-size: 0.55rem; padding: 6px 12px; }
+.ad-post-preview .ad-urgente { font-size: 0.5rem; padding: 5px 10px; }
+.ad-post-preview .ad-title { font-size: 1.4rem; margin-bottom: 0.9rem; }
+.ad-post-preview .ad-stats { grid-template-columns: repeat(4,1fr); gap: 8px; margin-bottom: 0.9rem; }
+.ad-post-preview .ad-stat { padding: 10px 8px; }
+.ad-post-preview .ad-stat-num { font-size: 1.1rem; }
+.ad-post-preview .ad-stat-label { font-size: 0.5rem; }
+.ad-post-preview .ad-section { margin-bottom: 0.7rem; }
+.ad-post-preview .ad-section-title { font-size: 0.6rem; margin-bottom: 6px; }
+.ad-post-preview .ad-tags { gap: 6px; }
+.ad-post-preview .ad-tag { font-size: 0.5rem; padding: 4px 10px; }
+.ad-post-preview .ad-benefits-grid { grid-template-columns: 1fr 1fr; gap: 6px 12px; margin-bottom: 0.8rem; }
+.ad-post-preview .ad-benefit { font-size: 0.6rem; }
+.ad-post-preview .ad-benefit-icon { font-size: 0.75rem; }
+.ad-post-preview .ad-cta-block { padding: 1rem 1.2rem; margin-top: auto; }
+.ad-post-preview .ad-cta-main { font-size: 1.1rem; padding: 0.9rem; }
+.ad-post-preview .ad-cta-sub { font-size: 0.6rem; }
+.ad-post-preview .ad-cta-hint { font-size: 0.5rem; }
+.ad-post-preview .ad-footer { margin-top: 0.8rem; }
+.ad-post-preview .ad-brand { font-size: 1rem; }
+.ad-post-preview .ad-garantia { font-size: 0.5rem; }
+
+.nav-posts {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: rgba(5,5,8,0.95);
+  border-top: 1px solid var(--glass-border);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.nav-posts a {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  color: var(--cyan);
+  text-decoration: none;
+  border: 1px solid var(--cyan);
+  border-radius: 6px;
+}
+
+.nav-posts a:hover { background: rgba(6, 182, 212, 0.1); }
+
+/* Grid de posts */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s;
+}
+
+.post-card:hover {
+  border-color: var(--cyan);
+  background: rgba(6,182,212,0.06);
+}
+
+.post-card-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+}
+
+.post-card-title {
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: rgba(255,255,255,0.9);
+}
+
+.post-card-title span { color: var(--gold); }

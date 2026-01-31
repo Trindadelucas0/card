@@ -1,0 +1,265 @@
+/* Estilos para print/screenshot 1080x1920 - Instagram Story / WhatsApp Status */
+:root {
+  --luxe: #050508;
+  --gold: #c9a227;
+  --cyan: #06b6d4;
+  --gold-dim: rgba(201, 162, 39, 0.4);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+  background: var(--luxe);
+  color: #e8e8e8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card {
+  width: 1080px;
+  height: 1920px;
+  position: relative;
+}
+
+.card-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--luxe) 0%, #0d0f12 50%, #0a0e12 100%);
+}
+
+.card-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(6, 182, 212, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.card-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 100px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card-content.post-mode {
+  padding: 60px 60px 70px;
+  overflow-y: auto;
+}
+
+.card-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 24px;
+}
+
+.card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 100px;
+  line-height: 0.95;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  margin-bottom: 28px;
+  text-shadow: 0 0 60px var(--gold-dim);
+}
+
+.card-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  letter-spacing: 0.03em;
+  color: #fff;
+  margin-bottom: 22px;
+  line-height: 1.1;
+}
+
+.card-post {
+  font-size: 24px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.card-post strong {
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+/* Mockups para print */
+.card-mockup {
+  margin-top: 22px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 18px 22px;
+  border-left: 4px solid var(--cyan);
+}
+
+.mockup-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.mockup-tile {
+  font-size: 18px;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 16px 12px;
+  background: rgba(6,182,212,0.1);
+  border: 1px solid rgba(6,182,212,0.25);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--cyan);
+}
+
+.mockup-screen {
+  font-size: 20px;
+  color: rgba(255,255,255,0.85);
+}
+
+.mockup-screen .mockup-header {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  color: var(--cyan);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mockup-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.mockup-kpis-2 { grid-template-columns: repeat(2, 1fr); }
+
+.mockup-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 6px;
+}
+
+.mockup-kpi span:first-child { font-size: 14px; color: var(--cyan); }
+.mockup-kpi span:last-child { font-weight: 600; font-size: 20px; }
+
+.mockup-bar {
+  font-size: 18px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 14px;
+}
+
+.mockup-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.mockup-row.mockup-total {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 14px;
+  font-weight: 700;
+}
+
+.mockup-row.mockup-positive span:last-child { color: #34d399; }
+.mockup-row.mockup-total span:last-child { color: var(--cyan); }
+
+.mockup-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.mockup-line.mockup-total { font-weight: 700; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 12px; }
+.mockup-line.mockup-alert span:last-child { color: #f87171; }
+
+.mockup-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(6,182,212,0.2);
+  color: var(--cyan);
+  border-radius: 6px;
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.mockup-highlight { color: var(--gold) !important; }
+
+.mockup-timeline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 0;
+  font-size: 18px;
+}
+
+.mockup-timeline .done { color: #34d399; }
+.mockup-timeline .current { color: var(--gold); }
+.mockup-timeline span:not(.done):not(.current) { color: rgba(255,255,255,0.3); }
+.mockup-timeline small { margin-left: 14px; color: rgba(255,255,255,0.45); font-size: 16px; }
+
+.mockup-actions {
+  font-size: 18px;
+  color: var(--cyan);
+  margin-top: 12px;
+}
+
+.mockup-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 80px;
+  margin-top: 20px;
+}
+
+.mockup-bar-chart {
+  flex: 1;
+  background: linear-gradient(180deg, var(--cyan), transparent);
+  border-radius: 4px 4px 0 0;
+  min-height: 20px;
+}
+
+.mockup-portal .mockup-footer {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 18px;
+  color: var(--gold);
+}
