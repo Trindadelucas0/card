@@ -337,6 +337,16 @@ body {
   margin-bottom: 8px;
 }
 
+.ad-cta-whatsapp {
+  display: block;
+  font-size: 22px;
+  font-weight: 700;
+  color: #25d366;
+  text-align: center;
+  margin-top: 12px;
+  text-decoration: none;
+}
+
 .ad-cta-hint {
   font-size: 16px;
   color: rgba(255,255,255,0.5);

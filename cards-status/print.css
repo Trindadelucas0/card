@@ -273,6 +273,7 @@ body {
 }
 .card-cta { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 0.08em; color: var(--gold); margin-bottom: 12px; }
 .card-cta-sub { font-size: 18px; color: var(--gold); font-weight: 600; }
+.card-cta-whatsapp { display: block; font-size: 24px; font-weight: 700; color: #25d366; text-align: center; margin-top: 14px; text-decoration: none; }
 
 /* Mockups para print */
 .card-mockup {

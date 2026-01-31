@@ -137,6 +137,8 @@ body {
 }
 .card-cta { display: block; font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.2rem, 5vw, 1.6rem); letter-spacing: 0.08em; color: var(--gold); margin-bottom: 0.5rem; }
 .card-cta-sub { font-size: 0.65rem; color: var(--gold); font-weight: 600; }
+.card-cta-whatsapp { display: block; font-size: 0.9rem; font-weight: 700; color: #25d366; text-align: center; margin-top: 0.5rem; text-decoration: none; }
+.card-cta-whatsapp:hover { color: #2eff7b; }
 
 /* Mockup de interface abaixo do post */
 .card-mockup {
