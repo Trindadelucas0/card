@@ -37,8 +37,47 @@ body {
   /* Área útil: safe area (notch, ilha, barra de gestos) */
   --safe-w: calc(100vw - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
   --safe-h: calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
-  /* Scale: cabe na tela; máximo 1 para não estourar em telas grandes */
-  --scale: min(1, min(calc(var(--safe-w) / 1080), calc(var(--safe-h) / 1920)));
+  /* Área usada só para o scale (viewport continua full com --safe-w/h) */
+  --scale-w: var(--safe-w);
+  --scale-h: var(--safe-h);
+  --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1920)));
+}
+
+/* Media queries: em telefone reduz a área do scale para o card ficar menor e caber confortável */
+/* Tablet e celular grande */
+@media (max-width: 768px), (max-height: 1024px) {
+  body {
+    --scale-w: calc(var(--safe-w) - 16px);
+    --scale-h: calc(var(--safe-h) - 24px);
+    --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1920)));
+  }
+}
+
+/* Celular (iPhone 14, Android médio) */
+@media (max-width: 430px), (max-height: 932px) {
+  body {
+    --scale-w: calc(var(--safe-w) - 28px);
+    --scale-h: calc(var(--safe-h) - 40px);
+    --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1920)));
+  }
+}
+
+/* Celular pequeno (iPhone SE, Android compacto) */
+@media (max-width: 390px), (max-height: 700px) {
+  body {
+    --scale-w: calc(var(--safe-w) - 36px);
+    --scale-h: calc(var(--safe-h) - 52px);
+    --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1920)));
+  }
+}
+
+/* Landscape no celular */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    --scale-w: calc(var(--safe-w) - 24px);
+    --scale-h: calc(var(--safe-h) - 32px);
+    --scale: min(1, min(calc(var(--scale-w) / 1080), calc(var(--scale-h) / 1920)));
+  }
 }
 
 /* Wrapper: ocupa exatamente a área visível (todos os iPhones e Android) */
